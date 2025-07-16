@@ -1,11 +1,3 @@
-.attribution {
-    font-size: 11px;
-    text-align: center;
-}
-
-.attribution a {
-    color: hsl(228, 45%, 44%);
-}
 
 :root {
     --Neutral-900: hsl(227, 75%, 14%);
@@ -67,8 +59,13 @@ body {
     padding: 10px;
     background-color: var(--Neutral-700);
     border-radius: 30px;
-
+    min-width: 80px;
+    text-align: center;
+    font-weight: 500;
+    transition: all 0.2s ease;
 }
+
+
 
 .filter div:hover {
     cursor: pointer;
@@ -79,9 +76,11 @@ body {
 
 .filter .selected {
     background-color: var(--Red-500);
-    color: rgba(0, 0, 0, 0.863);
+    color: white;
+    font-weight: 600;
     border: none;
     outline: none;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
 }
 
 /* ---------Main Content-------- */
@@ -177,9 +176,6 @@ body {
 /* ---------- */
 
 
-
-/* ...existing code... */
-
 /* Theme Toggle Button */
 .theme-toggle-btn {
     background: transparent;
@@ -243,8 +239,7 @@ body.light-mode .slider:before {
     background-color: #fff;
 }
 
-/* ...existing code... */
-/* ...existing code... */
+/* ................ */
 
 .nav {
     display: flex;
@@ -296,10 +291,6 @@ body.light-mode .theme-toggle-btn:hover {
     background: var(--Neutral-200);
 }
 
-/* ...existing code... */
-
-
-/* ...existing code... */
 
 /* ----------- Responsive Styles ----------- */
 @media (max-width: 900px) {
@@ -390,56 +381,121 @@ body.light-mode .theme-toggle-btn:hover {
     }
 }
 
-/* ...existing code... */
-
-
-/* ...existing code... */
 
 /* Card Layout & Colors */
-.card {
-    background-color: var(--Neutral-800);
-    border-radius: 16px;
-    padding: 22px 18px 18px 18px;
-    width: 300px;
-    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.10);
-    display: flex;
-    flex-direction: column;
-    gap: 12px;
-    position: relative;
-    border: 1.5px solid transparent;
-    transition: border 0.2s, box-shadow 0.2s;
-}
 
-.card:hover {
-    border: 1.5px solid var(--Red-500);
-    box-shadow: 0 6px 24px rgba(0, 0, 0, 0.13);
+
+
+
+
+
+.card {
+  background-color: var(--Neutral-800);
+  border-radius: 16px;
+  padding: 22px 18px 18px 18px;
+  width: 300px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.10);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  position: relative;
+  border: 1.5px solid transparent;
+  transition: border 0.2s, box-shadow 0.2s;
+  min-height: 190px;
 }
 
 .card img {
-    width: 48px;
-    height: 48px;
-    object-fit: contain;
-    border-radius: 12px;
-    margin-bottom: 6px;
-    background: #fff;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+  width: 48px;
+  height: 48px;
+  object-fit: contain;
+  border-radius: 12px;
+  background: #fff;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+  margin-bottom: 10px;
 }
 
 .card-title {
-    font-size: 1.18rem;
-    font-weight: 700;
-    margin-bottom: 2px;
-    color: var(--Neutral-0);
-    /* color: var(--Dark-Gradient); */
+  font-size: 1.18rem;
+  font-weight: 700;
+  margin-bottom: 4px;
+  color: var(--Neutral-0);
 }
 
 .card-description {
-    font-size: 1rem;
-    color: var(--Neutral-200);
-    /* color: var(--Neutral-800); */
-    margin-bottom: 10px;
-    min-height: 38px;
+  font-size: 1rem;
+  color: var(--Neutral-200);
+  margin-bottom: 10px;
+  min-height: 40px;
 }
+
+.card-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: auto;
+}
+
+
+.card-content {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  justify-content: space-between;
+}
+
+.card-top {
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+}
+
+.card-top img {
+  width: 48px;
+  height: 48px;
+  object-fit: contain;
+  border-radius: 12px;
+  background: #fff;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+}
+
+.card-text {
+  display: flex;
+  flex-direction: column;
+}
+
+.card-title {
+  font-size: 1.1rem;
+  font-weight: 700;
+  margin-bottom: 4px;
+  color: var(--Neutral-0);
+}
+
+.card-description {
+  font-size: 0.95rem;
+  color: var(--Neutral-200);
+  line-height: 1.4;
+}
+
+.card-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 18px;
+}
+
+
+/* Light mode specific text styling */
+body.light-mode .card-title {
+  background: var(--Dark-Gradient);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+}
+
+body.light-mode .card-description {
+  color: var(--Neutral-800);
+}
+
 
 .card .remove-button {
     align-self: flex-start;
@@ -506,8 +562,42 @@ body.light-mode .theme-toggle-btn:hover {
     background-color: var(--Red-400);
 }
 
-/* .slider:before {
-    position: absolute;
-    content: "";
-    height: 16px;
-    width:  */
+/* ----------Attribution--------- */
+
+
+.attribution {
+  font-size: 0.95rem;
+  text-align: center;
+  padding: 20px 0;
+  color: var(--Neutral-300);
+  background: transparent;
+  font-weight: 500;
+  letter-spacing: 0.3px;
+}
+
+.attribution a {
+  color: var(--Red-400);
+  text-decoration: none;
+  font-weight: 600;
+  transition: color 0.3s ease, border-bottom 0.2s ease;
+  border-bottom: 1px solid transparent;
+}
+
+.attribution a:hover {
+  color: var(--Red-500);
+  border-bottom: 1px solid var(--Red-500);
+}
+
+/* Light mode override */
+body.light-mode .attribution {
+  color: var(--Neutral-700);
+}
+
+body.light-mode .attribution a {
+  color: var(--Red-500);
+}
+
+body.light-mode .attribution a:hover {
+  color: var(--Red-700);
+  border-bottom: 1px solid var(--Red-700);
+}
