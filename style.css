@@ -1,0 +1,513 @@
+.attribution {
+    font-size: 11px;
+    text-align: center;
+}
+
+.attribution a {
+    color: hsl(228, 45%, 44%);
+}
+
+:root {
+    --Neutral-900: hsl(227, 75%, 14%);
+    --Neutral-800: hsl(226, 25%, 17%);
+    --Neutral-700: hsl(225, 23%, 24%);
+    --Neutral-600: hsl(226, 11%, 37%);
+    --Neutral-300: hsl(0, 0%, 78%);
+    --Neutral-200: hsl(217, 61%, 90%);
+    --Neutral-100: hsl(0, 0%, 93%);
+    --Neutral-0: hsl(200, 60%, 99%);
+    --Red-400: hsl(3, 86%, 64%);
+    --Red-500: hsl(3, 71%, 56%);
+    --Red-700: hsl(3, 77%, 44%);
+    --Light-Gradient: linear-gradient(180deg, #EBF2FC 0%, #EEF8F9 100%);
+    --Dark-Gradient: linear-gradient(180deg, #040918 0%, #091540 100%);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: var(--Neutral-900);
+    color: var(--Neutral-0);
+    font-family: "Noto Sans", sans-serif;
+}
+
+.nav {
+    background-color: var(--Neutral-800);
+    color: var(--Neutral-200);
+    padding: 10px;
+
+}
+
+.nav2 {
+    display: flex;
+    justify-content: space-between;
+    margin: 20px 45px;
+}
+
+.nav2 div {
+    font-size: large;
+}
+
+#extensionsList {
+    font-size: 180%;
+    font-weight: bold;
+}
+
+.filter {
+    display: flex;
+    list-style: none;
+    gap: 10px;
+}
+
+.filter div {
+    padding: 10px;
+    background-color: var(--Neutral-700);
+    border-radius: 30px;
+
+}
+
+.filter div:hover {
+    cursor: pointer;
+    border: 1px solid black;
+    outline: 1px solid var(--Red-500);
+    /* transform: scale(1.05); */
+}
+
+.filter .selected {
+    background-color: var(--Red-500);
+    color: rgba(0, 0, 0, 0.863);
+    border: none;
+    outline: none;
+}
+
+/* ---------Main Content-------- */
+
+.cards {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    padding: 20px;
+    justify-content: center;
+}
+
+.card {
+    background-color: var(--Neutral-800);
+    border-radius: 10px;
+    padding: 20px;
+    width: 300px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.card img {
+    width: 50px;
+    height: 50px;
+    object-fit: cover;
+    border-radius: 10px;
+}
+
+.remove-button {
+    background-color: var(--Neutral-600);
+    color: var(--Neutral-0);
+    border: none;
+    padding: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+
+.switch {
+    display: flex;
+    align-items: center;
+    margin-top: 10px;
+}
+
+.toggle-wrapper {
+    display: inline-block;
+    position: relative;
+    width: 40px;
+    height: 22px;
+}
+
+.toggle-wrapper input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: var(--Neutral-600);
+    transition: .4s;
+    border-radius: 34px;
+}
+
+.slider.round {
+    border-radius: 34px;
+}
+
+.toggle-wrapper input:checked+.slider {
+    background-color: var(--Red-400);
+}
+
+.slider:before {
+    position: absolute;
+    content: "";
+    height: 16px;
+    width: 16px;
+    left: 3px;
+    bottom: 3px;
+    background-color: white;
+    transition: .4s;
+    border-radius: 50%;
+}
+
+.toggle-wrapper input:checked+.slider:before {
+    transform: translateX(18px);
+}
+
+/* ---------- */
+
+
+
+/* ...existing code... */
+
+/* Theme Toggle Button */
+.theme-toggle-btn {
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    margin-left: 20px;
+    padding: 8px;
+    border-radius: 50%;
+    transition: background 0.3s;
+    display: flex;
+    align-items: center;
+}
+
+.theme-toggle-btn:hover {
+    background: var(--Neutral-700);
+}
+
+/* Light Mode Styles */
+body.light-mode {
+    background: var(--Light-Gradient);
+    color: #091540;
+}
+
+body.light-mode .nav {
+    background: #fff;
+    color: #091540;
+}
+
+body.light-mode .card {
+    background: #fff;
+    color: #091540;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.07);
+}
+
+body.light-mode .remove-button {
+    background-color: #fff;
+    color: var(--Red-500);
+    border: 1px solid var(--Red-500);
+}
+
+body.light-mode .filter div {
+    background-color: #fff;
+    color: #091540;
+    border: 1px solid var(--Neutral-300);
+}
+
+body.light-mode .filter .selected {
+    background-color: var(--Red-500);
+    color: #fff;
+}
+
+body.light-mode .switch .slider {
+    background-color: var(--Neutral-300);
+}
+
+body.light-mode .toggle-wrapper input:checked+.slider {
+    background-color: var(--Red-400);
+}
+
+body.light-mode .slider:before {
+    background-color: #fff;
+}
+
+/* ...existing code... */
+/* ...existing code... */
+
+.nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: var(--Neutral-800);
+    color: var(--Neutral-200);
+    padding: 18px 32px;
+    border-radius: 16px;
+    margin: 24px 32px 0 32px;
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.07);
+}
+
+.nav-left img {
+    vertical-align: middle;
+}
+
+.nav-right {
+    display: flex;
+    align-items: center;
+}
+
+.theme-toggle-btn {
+    background: var(--Dark-Gradient);
+    border: 2px solid var(--Neutral-300);
+    border-radius: 50%;
+    cursor: pointer;
+    width: 44px;
+    height: 44px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: border 0.2s, background 0.2s;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+}
+
+.theme-toggle-btn:hover {
+    border: 2px solid var(--Red-500);
+    background: var(--Neutral-100);
+}
+
+body.light-mode .theme-toggle-btn {
+    background: var(--Neutral-0);
+    border: 2px solid var(--Neutral-300);
+}
+
+body.light-mode .theme-toggle-btn:hover {
+    border: 2px solid var(--Red-500);
+    background: var(--Neutral-200);
+}
+
+/* ...existing code... */
+
+
+/* ...existing code... */
+
+/* ----------- Responsive Styles ----------- */
+@media (max-width: 900px) {
+    .cards {
+        gap: 16px;
+    }
+
+    .card {
+        width: 45vw;
+        min-width: 220px;
+        max-width: 320px;
+    }
+
+    .nav,
+    .nav2 {
+        margin: 16px 8px 0 8px;
+        padding: 12px 8px;
+        border-radius: 10px;
+    }
+}
+
+@media (max-width: 600px) {
+    .nav {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 10px 6px;
+        margin: 8px 4px 0 4px;
+    }
+
+    .nav-left img {
+        width: 110px;
+    }
+
+    .nav-right {
+        margin-top: 8px;
+        margin-left: 0;
+    }
+
+    .nav2 {
+        flex-direction: column;
+        gap: 10px;
+        margin: 10px 4px;
+        padding: 8px 4px;
+        justify-self: center;
+    }
+
+    #extensionsList {
+        font-size: 130%;
+        margin-bottom: 8px;
+    }
+
+    .filter {
+        gap: 6px;
+    }
+
+    .filter div {
+        padding: 7px 12px;
+        font-size: 1rem;
+    }
+
+    .cards {
+        flex-direction: column;
+        gap: 12px;
+        padding: 10px 2px;
+        align-items: center;
+    }
+
+    .card {
+        width: 95vw;
+        min-width: 180px;
+        max-width: 99vw;
+        padding: 14px 10px;
+    }
+
+    .remove-button {
+        padding: 8px 14px;
+        font-size: 1rem;
+    }
+
+    .switch {
+        margin-top: 8px;
+    }
+
+    .theme-toggle-btn {
+        width: 38px;
+        height: 38px;
+        padding: 4px;
+    }
+}
+
+/* ...existing code... */
+
+
+/* ...existing code... */
+
+/* Card Layout & Colors */
+.card {
+    background-color: var(--Neutral-800);
+    border-radius: 16px;
+    padding: 22px 18px 18px 18px;
+    width: 300px;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.10);
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    position: relative;
+    border: 1.5px solid transparent;
+    transition: border 0.2s, box-shadow 0.2s;
+}
+
+.card:hover {
+    border: 1.5px solid var(--Red-500);
+    box-shadow: 0 6px 24px rgba(0, 0, 0, 0.13);
+}
+
+.card img {
+    width: 48px;
+    height: 48px;
+    object-fit: contain;
+    border-radius: 12px;
+    margin-bottom: 6px;
+    background: #fff;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+}
+
+.card-title {
+    font-size: 1.18rem;
+    font-weight: 700;
+    margin-bottom: 2px;
+    color: var(--Neutral-0);
+    /* color: var(--Dark-Gradient); */
+}
+
+.card-description {
+    font-size: 1rem;
+    color: var(--Neutral-200);
+    /* color: var(--Neutral-800); */
+    margin-bottom: 10px;
+    min-height: 38px;
+}
+
+.card .remove-button {
+    align-self: flex-start;
+    background: transparent;
+    color: var(--Red-500);
+    border: 2px solid var(--Red-500);
+    padding: 7px 18px;
+    border-radius: 22px;
+    font-size: 1rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background 0.2s, color 0.2s, border 0.2s;
+    margin-bottom: 8px;
+    margin-top: 2px;
+    box-shadow: none;
+}
+
+.card .remove-button:hover,
+.card .remove-button:focus {
+    background: var(--Red-500);
+    color: #fff;
+    border: 2px solid var(--Red-500);
+    outline: none;
+}
+
+.switch {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
+.toggle-wrapper {
+    display: inline-block;
+    position: relative;
+    width: 40px;
+    height: 22px;
+}
+
+.toggle-wrapper input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: var(--Neutral-600);
+    transition: .4s;
+    border-radius: 34px;
+}
+
+.slider.round {
+    border-radius: 34px;
+}
+
+.toggle-wrapper input:checked+.slider {
+    background-color: var(--Red-400);
+}
+
+/* .slider:before {
+    position: absolute;
+    content: "";
+    height: 16px;
+    width:  */
